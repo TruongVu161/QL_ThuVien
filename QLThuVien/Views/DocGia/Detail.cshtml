@@ -1,0 +1,73 @@
+﻿@model QLThuVien.Models.DocGia
+
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <h1 class="mt-4">Chi tiết Độc giả</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="/Home">Trang chủ</a></li>
+        <li class="breadcrumb-item active">Chi tiết Độc giả</li>
+    </ol>
+    <div class="card mb-4">
+        <div class="card-header">
+            <a class="btn btn-success" asp-action="Index" asp-controller="DocGia">Về danh sách Độc giả</a>
+        </div>
+
+            <div class="jumbotron">
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.MaDG)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.MaDG)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.TenDG)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.TenDG)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.SDT)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.SDT)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.DiaChi)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.DiaChi)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.GioiTinh)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.GioiTinh)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.MatSach)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.MatSach)
+                    </dd>
+                    <div>
+                        <form action="~/DocGia/Edit" method="get">
+                            <input type="hidden" value="@Model.MaDG" name="id" />
+                            <input type="submit" value="Sửa" class="btn btn-outline-success" />
+                        </form>
+                        <br />
+                        <form action="~/PhieuMuon/GetPMDG" method="get">
+                            <input type="hidden" value="@ViewBag.madg" name="id" />
+                            <input type="submit" value="Xem chi tiết phiếu mượn" class="btn btn-outline-warning" />
+                        </form>
+                    </div>
+                </dl>
+            </div>
+    </div>
+</div>
+
+
+
